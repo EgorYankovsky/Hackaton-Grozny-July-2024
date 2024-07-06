@@ -4,8 +4,8 @@ import torchvision.transforms as transforms
 from torchvision.models import resnet18
 import os
 
-MODEL_PATH_RELATIVE = os.path.join(os.getcwd() + "\\resnet18_letters.pth")
-#print(MODEL_PATH_RELATIVE)
+MODEL_PATH = os.path.join(os.getcwd() + "\\resnet18_letters.pth")
+print(MODEL_PATH)
 
 label2letter = {
     0: "0", 1: "1", 2: "2", 3: "3", 4: "4", 5: "5", 6: "6", 7: "7", 8: "8", 9: "9",
@@ -16,7 +16,7 @@ class LettersPrediction(object):
     def __init__(self):
         self.model = resnet18()
         self.model.fc = nn.Linear(self.model.fc.in_features, out_features=22)
-        self.model.load_state_dict(torch.load(MODEL_PATH_RELATIVE, map_location=torch.device('cpu')))
+        self.model.load_state_dict(torch.load(MODEL_PATH, map_location=torch.device('cpu')))
         self.model.eval()
 
         self.imgsz = 64

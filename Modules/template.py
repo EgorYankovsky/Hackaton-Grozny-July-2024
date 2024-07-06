@@ -32,7 +32,10 @@ def apply_template(img, region_length):
     else:
        raise ValueError("Неподдерживаемое разбиение на регионы. Поддерживаются только 2 и 3.")
 
-    H, W, _ = img.shape
+    if len(img.shape) == 2:
+        H,W = img.shape
+    else:
+        H, W, _ = img.shape
 
     if H != 112 or W != 512:
         raise ValueError("Форма изображения должна быть 512x112")
