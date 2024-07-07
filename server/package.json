@@ -1,0 +1,17 @@
+{
+    "name": "my-ai-app",
+    "version": "1.0.0",
+    "description": "AI application with Node.js and Express",
+    "main": "app.js",
+    "scripts": { 
+      "start": "node app.js",
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Ваше имя",
+    "license": "MIT",
+    "dependencies": {
+        "express": "^4.18.2",
+        "cors": "^2.8.5",
+        "axios": "^1.4.0"
+    }
+  }

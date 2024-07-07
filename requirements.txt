@@ -1,0 +1,10 @@
+flask
+opencv-python
+torch
+torchvision
+numpy
+argparse
+pandas
+matplotlib
+tqdm
+pathlib
