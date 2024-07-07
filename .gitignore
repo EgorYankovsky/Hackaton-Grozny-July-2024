@@ -2,3 +2,5 @@
 *.pptx
 train/
 valid/
+test/
+runs/
