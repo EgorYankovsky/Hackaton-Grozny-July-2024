@@ -203,16 +203,20 @@ def metric(correct, prediction):
             correct_liter += 1
     return correct_liter
 
-
-
-if __name__ == "__main__":
+def main():
     test = cv.imread(sys.argv[0])
     test = cv.resize(test,(512, 112), fx=1, fy=1, interpolation=cv.INTER_CUBIC)
+    
+    trans_img = img_deformation(test)
 
-    crops2 = apply_template(test, 2)
-    crops3 = apply_template(test, 3)
+    crops2 = apply_template(trans_img, 2)
+    crops3 = apply_template(trans_img, 3)
+    writeTo(crops2, 'temp_crops/')
     writeTo(crops3, 'temp_crops/')
 
     model = LettersPrediction()
-    print(model.predict_series(crops2))
-    print(model.predict_series(crops3))
+    return model.predict_series(crops2), model.predict_series(crops3) 
+
+
+if __name__ == "__main__":
+    main()
