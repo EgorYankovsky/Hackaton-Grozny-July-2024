@@ -130,21 +130,15 @@ def img_deformation(img):
   return affined
 
 
-def main():
-    test = cv.imread(sys.argv[1])
+def get_result(path):
+    test = cv.imread(path)
     test = cv.resize(test,(512, 112), fx=1, fy=1, interpolation=cv.INTER_CUBIC)
     
     trans_img = img_deformation(test)
 
     crops2 = apply_template(trans_img, 2)
     crops3 = apply_template(trans_img, 3)
-    writeTo(crops2, 'temp_crops/')
-    writeTo(crops3, 'temp_crops/')
 
     model = LettersPrediction()
 
     return model.predict_series(crops2), model.predict_series(crops3) 
-
-
-if __name__ == "__main__":
-    main()
