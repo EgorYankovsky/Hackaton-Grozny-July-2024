@@ -13,6 +13,7 @@ COPY ./Modules/model.py /.
 COPY ./Modules/template.py /.
 COPY resnet18_letters.pth /.
 COPY ../images /images
+COPY best.pt /.
 
 # Запуск Python сервера
 # CMD ["python", "api.py"]

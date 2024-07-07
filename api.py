@@ -15,22 +15,19 @@ def predict():
     image_data = data['image']
 
     # Декодирование изображения
-    # image_bytes = base64.b64decode(image_data.split(',')[1])
-    # image = Image.open(io.BytesIO(image_bytes))
+    image_bytes = base64.b64decode(image_data.split(',')[1])
+    image = Image.open(io.BytesIO(image_bytes))
 
-    # Здесь выполните свою обработку изображения, например,
-    # прогнозирование модели машинного обучения
-
-    # # Сохранение изображения во временный файл
-    # temp_image_path = '/tmp/temp_image.jpg'  # Путь к временному файлу
-    # image.save(temp_image_path)
+    # Сохранение изображения во временный файл
+    temp_image_path = '/tmp/temp_image.jpg'  # Путь к временному файлу
+    image.save(temp_image_path)
 
     # # Запуск pipeline.py с аргументом пути к изображению
     # subprocess.run(['python', 'pipeline.py', temp_image_path])
 
     # Возврат результата
     result = {
-      "result": "Изображение успешно обработано и передано в pipeline.py" 
+      "result": f"Изображение успешно обработано и передано в pipeline.py по пути:  {temp_image_path}." 
     }
     return jsonify(result)
     # return json.dumps(result, ensure_ascii=False).encode('utf-8')
