@@ -2,7 +2,6 @@
 *.pptx
 train/
 valid/
-test/
 runs/
 yolov8m-seg.pt
 data.yaml
